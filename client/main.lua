@@ -67,14 +67,9 @@ end)
 
 -- Randomly selects a Vehicle from the Config List
 RegisterNetEvent('qb-electrician:client:VehPick', function()
-    local choice = math.random(1, 2)
-    if choice == 1 then
-        ElecVeh = Config.JobVehicles[1]
-        TriggerEvent('qb-electrician:client:SpawnVehicle', ElecVeh)
-    elseif choice == 2 then
-        ElecVeh = Config.JobVehicles[2]
-        TriggerEvent('qb-electrician:client:SpawnVehicle', ElecVeh)
-    end
+    local choice = math.random(1, #Config.JobVehicles)
+    ElecVeh = Config.JobVehicles[choice]
+    TriggerEvent('qb-electrician:client:SpawnVehicle', ElecVeh)
 end)
 
 CreateThread(function()
