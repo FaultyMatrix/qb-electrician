@@ -67,7 +67,6 @@ end)
 
 -- Randomly selects a Vehicle from the Config List
 RegisterNetEvent('qb-electrician:client:VehPick', function()
-    print("picking")
     local choice = math.random(1, 2)
     if choice == 1 then
         ElecVeh = Config.JobVehicles[1]
@@ -116,7 +115,6 @@ CreateThread(function()
                             end
                         else
                             TriggerEvent('qb-electrician:client:VehPick')
-                            print("spawning")
                         end
                     end  
                 end
@@ -130,7 +128,6 @@ end)
 
 -- Spawns Electrician Vehicle
 RegisterNetEvent('qb-electrician:client:SpawnVehicle', function(vehicleInfo)
-    print("spawned")
     local coords = Config.Locations["vehicle"].coords
     QBCore.Functions.SpawnVehicle(vehicleInfo, function(veh)
         SetVehicleNumberPlateText(veh, "ELEC"..tostring(math.random(1000, 9999)))
